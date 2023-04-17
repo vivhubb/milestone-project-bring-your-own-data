@@ -11,9 +11,3 @@ def statistics_visualisation():
 
     st.write('**Selling price and KM driven per year**')
     st.bar_chart(visualisation_pky(df))
-
-    st.write('**Selling price by owner count**')
-    st.plotly_chart(visualisation_po(df))
-
-    st.write('**Selling Price by Owner Count and Year**')
-    st.pyplot(visualisation_pocy(df))
