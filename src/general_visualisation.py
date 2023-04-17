@@ -25,3 +25,13 @@ def build_df():
 
 def visualisation_pky(df):
     return df.groupby('year').mean()[['selling_price', 'km_driven']]
+
+
+def visualisation_po(df):
+    fig = plt.figure()
+    plt.bar(df['owner'], df['selling_price'])
+    plt.title('Selling price by owner count')
+    plt.xlabel('OWNER')
+    plt.ylabel('PRICE VALUE')
+
+    return fig
