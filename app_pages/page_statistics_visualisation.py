@@ -6,7 +6,7 @@ from src.general_visualisation import *
 def statistics_visualisation():
     df = build_df()
 
-    st.write('**Dataframe used for below visualisation**')
+    st.write('**Dataframe used for below visualisations**')
     st.dataframe(df)
 
     st.write('**Selling price and KM driven per year**')
@@ -20,3 +20,10 @@ def statistics_visualisation():
 
     st.write('**Identifying outliers**')
     st.plotly_chart(visualisation_outliers(df))
+
+    st.write('**Dataframe used for below visualisation**')
+    df = calculate_price_difference(df)
+    st.dataframe(df)
+
+    st.write('**How KMs driven affect price drop**')
+    st.plotly_chart(visualisation_kmpd(df))

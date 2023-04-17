@@ -74,3 +74,23 @@ def visualisation_outliers(df):
     fig = px.scatter(df, x='year', y='selling_price')
 
     return fig
+
+
+def calculate_price_difference(df):
+    data = load_data('data/data.csv')
+
+    df = pd.DataFrame(data, columns=['year', 'km_driven', 'selling_price', 'ex_showroom_price'])
+
+    price_difference = df['ex_showroom_price'] - df['selling_price']
+    df['price_difference'] = price_difference
+
+    return df
+
+
+def visualisation_kmpd(df):
+    fig = px.line(df.groupby('km_driven').mean()[['price_difference']],
+                    y='price_difference', 
+                    range_x=[0, 120000], 
+                    range_y=[-50000, 220000],)
+
+    return fig
