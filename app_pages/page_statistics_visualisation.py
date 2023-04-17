@@ -13,7 +13,10 @@ def statistics_visualisation():
     st.bar_chart(visualisation_pky(df))
 
     st.write('**Selling price by owner count**')
-    st.plotly_chart(visualisation_po(df))
+    st.pyplot(visualisation_po(df))
 
     st.write('**Selling Price by Owner Count and Year**')
     st.pyplot(visualisation_pocy(df))
+
+    st.write('**Identifying outliers**')
+    st.plotly_chart(visualisation_outliers(df))
