@@ -14,3 +14,6 @@ def statistics_visualisation():
 
     st.write('**Selling price by owner count**')
     st.plotly_chart(visualisation_po(df))
+
+    st.write('**Selling Price by Owner Count and Year**')
+    st.pyplot(visualisation_pocy(df))
