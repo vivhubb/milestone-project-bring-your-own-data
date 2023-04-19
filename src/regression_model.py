@@ -2,50 +2,48 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
-from src.data_management import split_train_validation_test_data
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+from src.general_visualisation import load_data
 
 
-def load_train_df():
-    data = pd.read_csv('data/train/train.csv')
-    df_train = pd.DataFrame(data)
+def drop_outliers(df, df_col):
+    q1, q3 = np.percentile(df[df_col], [25, 75])
 
-    return df_train
+    IQR = q3 - q1
+    ul = q3+1.5*IQR
+    ll = q1-1.5*IQR
 
-
-def load_test_df():
-    data = pd.read_csv('data/test/test.csv')
-    df_test = pd.DataFrame(data)
-
-    return df_test
+    return df[(df[df_col] >= ll) & (df[df_col] <= ul)]
 
 
 def train_model():
-    split_train_validation_test_data('data/', 0.8, 0.1, 0.1)
+    df = load_data('data/data.csv')
 
-    df = load_train_df()
-    df = df[(df['year']>=2000) & (df['km_driven']<75000)]
+    df = drop_outliers(df, 'selling_price')
+    df = drop_outliers(df, 'km_driven')
 
     x = df[['year', 'km_driven']]
     y = df['selling_price']
 
-    # x_ = PolynomialFeatures(degree=2, include_bias=True).fit_transform(x)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2, random_state=1)
+
+    x_ = PolynomialFeatures(degree=2, include_bias=True).fit_transform(x_train)
 
     model = LinearRegression()
-    model.fit(x, y)
+    model.fit(x_, y_train)
 
-    y_pred = model.predict(x)
-    e = calculate_errors(y, y_pred)
+    y_pred = model.predict(x_)
+    e = calculate_errors(y_train, y_pred)
 
-    return e, model
+    return e, x_test, y_test, model
 
     
-def test_model(model):
-    df = load_test_df()
-    x = df[['year', 'km_driven']]
-    y = df['selling_price']
+def test_model(model, x, y):   
 
-    y_pred = model.predict(x)
+    x_ = PolynomialFeatures(degree=2, include_bias=True).fit_transform(x)
+    
+    y_pred = model.predict(x_)
     e_test = calculate_errors(y, y_pred)
 
     return e_test, y_pred

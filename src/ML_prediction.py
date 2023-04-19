@@ -5,10 +5,3 @@ import plotly.express as px
 import plotly.graph_objects as go
 import re
 from src.general_visualisation import load_data
-
-
-def load_train_df():
-    data = load_data('data/train/train.csv')
-    df_train = pd.DataFrame(data)
-
-    return df_train

@@ -2,7 +2,7 @@ import streamlit as st
 from src.ML_prediction import *
 
 def ml_prediction():
-    df = load_train_df()
+    df = load_validation_df()
 
-    st.write('**Dataframe used for training ML model**')
+    st.write('**Validation dataframe**')
     st.dataframe(df)
