@@ -1,9 +1,10 @@
+import re
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
-import re
 
 
 def load_data(path):
@@ -92,5 +93,18 @@ def visualisation_kmpd(df):
                     y='price_difference', 
                     range_x=[0, 120000], 
                     range_y=[-50000, 220000],)
+
+    return fig
+
+
+def build_correlation_matrix():
+    data = load_data('data/data.csv')
+    data = data.drop(columns='index')
+    return data.corr()
+
+
+def corr_matrix_heatmap():
+    fig, ax = plt.subplots()
+    sns.heatmap(build_correlation_matrix(), annot=True)
 
     return fig

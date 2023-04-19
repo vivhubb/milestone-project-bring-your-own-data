@@ -6,6 +6,9 @@ from src.general_visualisation import *
 def statistics_visualisation():
     df = build_df()
 
+    st.write('**Correlation Matrix**')
+    st.write(corr_matrix_heatmap())
+
     st.write('**Dataframe used for below visualisations**')
     st.dataframe(df)
 
