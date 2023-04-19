@@ -9,7 +9,8 @@ import plotly.graph_objects as go
 
 def load_data(path):
     data = pd.read_csv(path)
-    data.fillna(value=data['selling_price'], inplace=True)
+    data['ex_showroom_price'].fillna(value=data['selling_price'], inplace=True)
+    
     data.reset_index(inplace=True)
 
     return data

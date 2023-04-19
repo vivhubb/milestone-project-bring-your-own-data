@@ -1,3 +1,4 @@
+import re
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -20,13 +21,17 @@ def drop_outliers(df, df_col):
 def train_model():
     df = load_data('data/data.csv')
 
+    owner_count = np.array(list(map(lambda x: re.search('[0-9]*', x).group(0), df['owner'].values)))
+    df['owner'] = owner_count
+    df.drop(['name', 'seller_type'], axis=1, inplace=True)
+
     df = drop_outliers(df, 'selling_price')
     df = drop_outliers(df, 'km_driven')
 
     x = df[['year', 'km_driven']]
     y = df['selling_price']
 
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2, random_state=1)
+    x_train, x_test, y_train, y_test = train_test_split(df.drop(['selling_price'], axis=1), y, test_size=.2, random_state=1)
 
     x_ = PolynomialFeatures(degree=2, include_bias=True).fit_transform(x_train)
 
