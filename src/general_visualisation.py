@@ -109,3 +109,13 @@ def corr_matrix_heatmap():
     sns.heatmap(build_correlation_matrix(), annot=True)
 
     return fig
+
+
+def accuracy_visualisation(y, y_pred, title):
+    fig = px.scatter(x=y, y=y_pred, trendline='ols', 
+                    labels={'x': 'actual price',
+                            'y': 'predicted price'},
+                    title=title)
+
+
+    return fig
