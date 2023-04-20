@@ -1,7 +1,9 @@
 import streamlit as st
-
+from src.data_management import split_data
 
 def project_summary():
+    split_data()
+    
     st.title('Quick Project Summary')
     st.info(
         f"* **General information**  \n"

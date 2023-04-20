@@ -10,8 +10,6 @@ import plotly.graph_objects as go
 def load_data(path):
     data = pd.read_csv(path)
     data['ex_showroom_price'].fillna(value=data['selling_price'], inplace=True)
-    
-    data.reset_index(inplace=True)
 
     return data
 
@@ -100,7 +98,6 @@ def visualisation_kmpd(df):
 
 def build_correlation_matrix():
     data = load_data('data/data.csv')
-    data = data.drop(columns='index')
     return data.corr()
 
 
@@ -112,10 +109,10 @@ def corr_matrix_heatmap():
 
 
 def accuracy_visualisation(y, y_pred, title):
-    fig = px.scatter(x=y, y=y_pred, trendline='ols', 
+    fig = px.scatter(x=y.values.astype(int), y=y_pred.astype(int), trendline='ols', 
                     labels={'x': 'actual price',
                             'y': 'predicted price'},
                     title=title)
 
-
     return fig
+ 

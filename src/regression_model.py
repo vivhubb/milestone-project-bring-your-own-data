@@ -1,40 +1,17 @@
-import re
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from src.general_visualisation import load_data
-
-
-def drop_outliers(df, df_col):
-    q1, q3 = np.percentile(df[df_col], [25, 75])
-
-    # interquartile range
-    IQR = q3 - q1
-    # upper limit
-    ul = q3+1.5*IQR
-    # lower limit
-    ll = q1-1.5*IQR
-
-    return df[(df[df_col] >= ll) & (df[df_col] <= ul)]
+from src.data_management import drop_outliers, load_data
 
 
 def train_model():
-    df = load_data('data/data.csv')
-
-    owner_count = np.array(list(map(lambda x: re.search('[0-9]*', x).group(0), df['owner'].values)))
-    df['owner'] = owner_count
-    df.drop(['name', 'seller_type'], axis=1, inplace=True)
-
-    df = drop_outliers(df, 'selling_price')
-    df = drop_outliers(df, 'km_driven')
-
-    y = df['selling_price']
-
-    x_train, x_test, y_train, y_test = train_test_split(df.drop(['selling_price'], axis=1), y, test_size=.2, random_state=1)
-
+    x_train = load_data('data/input/x_train.csv')
+    y_train = load_data('data/input/y_train.csv')
+    y_train = y_train.squeeze()
+    
     x_ = PolynomialFeatures(degree=2, include_bias=True).fit_transform(x_train)
 
     model = LinearRegression()
@@ -43,17 +20,20 @@ def train_model():
     y_pred = model.predict(x_)
     e = calculate_errors(y_train, y_pred)
 
-    return e, x_test, y_test, y_train, y_pred, model
+    return e, y_train, y_pred, model
 
     
-def test_model(model, x, y):   
+def test_model(model):
+    x_test = load_data('data/input/x_test.csv')
+    y_test = load_data('data/input/y_test.csv')
+    y_test = y_test.squeeze()
 
-    x_ = PolynomialFeatures(degree=2, include_bias=True).fit_transform(x)
+    x_ = PolynomialFeatures(degree=2, include_bias=True).fit_transform(x_test)
     
     y_pred = model.predict(x_)
-    e_test = calculate_errors(y, y_pred)
+    e_test = calculate_errors(y_test, y_pred)
 
-    return e_test, y_pred
+    return e_test, y_test, y_pred
 
 
 def calculate_errors(y, y_pred):
