@@ -2,6 +2,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
+from datetime import date
 from sklearn.model_selection import train_test_split
 
 
@@ -55,3 +56,7 @@ def split_data():
         save_data('data/input/x_test.csv', x_test)
         save_data('data/input/y_train.csv', y_train)
         save_data('data/input/y_test.csv', y_test)
+
+
+def get_date():
+    return date.today().strftime('%Y')
