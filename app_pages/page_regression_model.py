@@ -1,19 +1,28 @@
 import streamlit as st
 from src.regression_model import *
 from src.general_visualisation import accuracy_visualisation
+from src.data_management import load_model, load_data
+from src.regression_model import calculate_errors
 
 
 def regression_model():
     st.title('**Model Evaluation**')
 
-    e, y_train, y_pred, model = train_model()
+    model = load_model('data/output/model.pkl')
+    x = load_data('data/input/x_train.csv')
+    y = load_data('data/input/y_train.csv')
+    y = y.squeeze()
+
+    y_pred = model.predict(x)
+    e = calculate_errors(y, y_pred)
+
     st.write('**Train Set**  \n')
     st.write(f'R2 score: {e[0]}  \n')
     st.write(f'Mean squared error: {e[1]}  \n')
     st.write(f'Mean absolute error: {e[2]}  \n')
     st.write(f'Root mean squared error: {e[3]}  \n')
 
-    fig1 = accuracy_visualisation(y_train, y_pred, 'Train Set')
+    fig1 = accuracy_visualisation(y, y_pred, 'Train Set')
 
     e, y, y_pred = test_model(model)
     st.write('**Test Set**')

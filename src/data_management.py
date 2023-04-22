@@ -1,5 +1,6 @@
 import os
 import re
+import joblib
 import numpy as np
 import pandas as pd
 from datetime import date
@@ -60,3 +61,14 @@ def split_data():
 
 def get_date():
     return date.today().strftime('%Y')
+
+
+def save_model(model, filename):
+    if not os.path.isdir(os.path.dirname(filename)):
+        os.mkdir(os.path.dirname(filename))
+
+    joblib.dump(model, filename)
+
+
+def load_model(filename):
+    return joblib.load(filename)

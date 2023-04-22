@@ -109,7 +109,7 @@ def corr_matrix_heatmap():
 
 
 def accuracy_visualisation(y, y_pred, title):
-    fig = px.scatter(x=y.values.astype(int), y=y_pred.astype(int), trendline='ols', 
+    fig = px.scatter(x=y, y=y_pred, trendline='ols', 
                     labels={'x': 'actual price',
                             'y': 'predicted price'},
                     title=title)
