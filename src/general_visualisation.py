@@ -70,8 +70,8 @@ def visualisation_pocy(df):
     return fig
 
 
-def visualisation_outliers(df):
-    fig = px.scatter(df, x='year', y='selling_price')
+def visualisation_outliers(df, x, y):
+    fig = px.scatter(df, x=x, y=y)
 
     return fig
 

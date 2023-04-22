@@ -22,7 +22,11 @@ def statistics_visualisation():
     st.plotly_chart(visualisation_pocy(df))
 
     st.write('**Identifying outliers**')
-    st.plotly_chart(visualisation_outliers(df))
+    st.write('**Selling Price by Year**')
+    st.plotly_chart(visualisation_outliers(df, x='year', y='selling_price'))
+    st.write('**Selling Price by KMs driven**')
+    st.plotly_chart(visualisation_outliers(df, x='km_driven', y='selling_price'))
+
 
     st.write('**Dataframe used for below visualisation**')
     df = calculate_price_difference(df)
