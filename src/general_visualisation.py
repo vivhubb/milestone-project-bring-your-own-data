@@ -98,7 +98,10 @@ def visualisation_kmpd(df):
 
 def build_correlation_matrix():
     data = load_data('data/data.csv')
-    return data.corr()
+    owner_count = np.array(list(map(lambda x: re.search('[0-9]*', x).group(0), data['owner'].values)))
+    data['owner'] = owner_count
+    
+    return data.drop(columns=['name', 'seller_type']).corr()
 
 
 def corr_matrix_heatmap():
