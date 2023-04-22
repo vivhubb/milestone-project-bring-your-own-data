@@ -1,5 +1,6 @@
+import pandas as pd
 import streamlit as st
-from src.data_management import get_date
+from src.data_management import get_date, save_data
 from src.ML_prediction import predict_price
 
 def ml_prediction():
@@ -16,4 +17,9 @@ def ml_prediction():
 
     with open('template/template.csv', 'rb') as f:
         st.download_button('Download template CSV', f, file_name='template.csv')
+
+    upload = st.file_uploader(label='Upload CSV file')
+
+    if upload is not None:
+        save_data('uploads/input.csv', pd.read_csv(upload))
 
