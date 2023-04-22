@@ -14,3 +14,6 @@ def ml_prediction():
         price = int(predict_price([[year_input, km_input],])[0])
         st.write(f'**Predicted Price:** {price}')
 
+    with open('template/template.csv', 'rb') as f:
+        st.download_button('Download template CSV', f, file_name='template.csv')
+
