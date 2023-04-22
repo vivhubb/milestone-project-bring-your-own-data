@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 from src.data_management import get_date, save_data
-from src.ML_prediction import predict_price
+from src.ML_prediction import predict_price, predict_from_csv
 
 def ml_prediction():
     st.write('#### **Predict Sale Price**')
@@ -22,4 +22,9 @@ def ml_prediction():
 
     if upload is not None:
         save_data('uploads/input.csv', pd.read_csv(upload))
+
+        data = predict_from_csv()
+
+        st.write('**Predicted Prices :**')
+        st.write(data)
 

@@ -8,3 +8,15 @@ def predict_price(data):
     data = pd.DataFrame(np.array(data), columns=['year', 'km_driven'])
 
     return model.predict(data)
+
+
+def predict_from_csv():
+    data = pd.read_csv('uploads/input.csv')
+    model = load_model('data/output/best_model.pkl')
+
+    pred_price = model.predict(data.drop(columns=['name']))
+
+    data['year'] = data['year'].astype(str)
+    data['predicted price'] = pred_price.astype(int)
+
+    return  data
