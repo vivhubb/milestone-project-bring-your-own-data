@@ -30,7 +30,7 @@ def statistics_visualisation():
 
         st.warning(
             '''
-            A correlation matrix is a table that displays the 
+            A **correlation matrix** is a table that displays the 
             pairwise correlation coefficients between a set of variables. 
             In other words, it shows how strongly each variable is related 
             to every other variable in the set.
@@ -46,6 +46,9 @@ def statistics_visualisation():
         )
 
     st.write('**Dataframe used for below visualisations**')
+    st.write(
+        f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns"
+        )
     st.dataframe(df)
 
     if st.checkbox('**Selling price and KM driven per year**'):
@@ -67,6 +70,9 @@ def statistics_visualisation():
 
     st.write('**Dataframe used for below visualisation**')
     df = calculate_price_difference(df)
+    st.write(
+        f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns"
+        )
     st.dataframe(df)
 
     if st.checkbox('**How KMs driven affect price drop**'):
