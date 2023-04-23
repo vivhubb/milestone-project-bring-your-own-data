@@ -21,7 +21,7 @@ def project_summary():
         f"[Project README file](https://github.com/vivhubb/milestone-project-bring-your-own-data/blob/main/README.md)"
     )
     st.warning(
-        f"The project has X business requirements:  \n"
-        f"* 1 -  \n"
-        f"* 2 -  \n"
+        f"**The project has 2 business requirements:**  \n"
+        f"* 1 - The client is interested to see how the motorcycle attributes correlate with the sale prices.  \n"
+        f"* 2 -  The client is interested to predict used motorcycle prices.  \n"
     )
