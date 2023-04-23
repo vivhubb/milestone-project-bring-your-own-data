@@ -2,6 +2,7 @@ import streamlit as st
 from src.data_management import split_data
 from src.regression_model import train_model
 
+
 def project_summary():
     split_data()
     train_model()
