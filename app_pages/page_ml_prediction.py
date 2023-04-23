@@ -4,7 +4,7 @@ from src.data_management import get_date, save_data
 from src.ML_prediction import predict_price, predict_from_csv
 
 def ml_prediction():
-    st.write('#### **Predict Sale Price**')
+    st.write('## Predict Sale Price')
 
     with st.form(key='form'):
         year_input = st.number_input(label='year', min_value=1885, max_value=int(get_date()), value=2002)

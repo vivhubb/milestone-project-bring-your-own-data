@@ -8,22 +8,22 @@ def statistics_visualisation():
 
     st.write('## Visualisations')
 
-    st.write('#### **Correlation Matrix**')
+    st.write('#### Correlation Matrix')
     st.write(corr_matrix_heatmap())
 
-    st.write('#### **Dataframe used for below visualisations**')
+    st.write('#### Dataframe used for below visualisations')
     st.dataframe(df)
 
-    st.write('#### **Selling price and KM driven per year**')
+    st.write('#### Selling price and KM driven per year')
     st.plotly_chart(visualisation_pky(df))
 
-    st.write('#### **Selling price by owner count**')
+    st.write('#### Selling price by owner count')
     st.plotly_chart(visualisation_po(df))
 
-    st.write('#### **Selling Price by Owner Count and Year**')
+    st.write('#### Selling Price by Owner Count and Year')
     st.plotly_chart(visualisation_pocy(df))
 
-    st.write('#### **Identifying outliers**')
+    st.write('#### Identifying outliers')
     st.write('* **Selling Price by Year**')
     st.plotly_chart(visualisation_outliers(df, x='year', y='selling_price'))
     st.write('* **Selling Price by KMs driven**')

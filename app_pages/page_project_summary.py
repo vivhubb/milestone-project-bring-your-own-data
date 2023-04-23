@@ -7,7 +7,7 @@ def project_summary():
     split_data()
     train_model()
     
-    st.title('Quick Project Summary')
+    st.write('## Quick Project Summary')
     st.info(
         f"* **General information**  \n"
         f"* **Project Dataset**  \n"
