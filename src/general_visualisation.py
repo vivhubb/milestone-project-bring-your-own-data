@@ -106,7 +106,7 @@ def build_correlation_matrix():
 
 def corr_matrix_heatmap():
     fig, ax = plt.subplots()
-    sns.heatmap(build_correlation_matrix(), annot=True)
+    sns.heatmap(build_correlation_matrix(), annot=True, cmap='viridis')
 
     return fig
 
