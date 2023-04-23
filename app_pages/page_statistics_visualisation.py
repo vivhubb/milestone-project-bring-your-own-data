@@ -6,10 +6,44 @@ from src.general_visualisation import *
 def statistics_visualisation():
     df = build_df()
 
+    # general overview
+    st.warning(
+        '''
+        * The client is interested in understanding the patterns of 
+        the motorbikes dataset so that the client can learn the most 
+        relevant variables correlated to price changes.
+        '''
+        )
+
+    # title
     st.write('## Visualisations')
 
+    # correlation matrix
+    st.warning(
+        '''
+        * A correlation study was conducted to find the most 
+        important variables for determining a motorcycle's sale price.
+        '''
+        )
     if st.checkbox('**Correlation Matrix**'):
         st.write(corr_matrix_heatmap())
+
+        st.warning(
+            '''
+            A correlation matrix is a table that displays the 
+            pairwise correlation coefficients between a set of variables. 
+            In other words, it shows how strongly each variable is related 
+            to every other variable in the set.
+            '''
+        )
+        st.info(
+            f"**Variables explained :**  \n"
+            f"* **selling_price:** relects the current selling price of the bike  \n"
+            f"* **year:** shows the year of manufacturing  \n"
+            f"* **owner:** counts how many owners the bike had previously  \n"
+            f"* **km_driven:** shows the mileage for the motorcycle  \n"
+            f"* **ex_showroom_price:** shows the initial price of the motorbike  \n"
+        )
 
     st.write('**Dataframe used for below visualisations**')
     st.dataframe(df)
@@ -25,10 +59,11 @@ def statistics_visualisation():
 
     if st.checkbox('**Identifying outliers**'):
         st.write('* **Selling Price by Year**')
-        st.plotly_chart(visualisation_outliers(df, x='year', y='selling_price'))
+        st.plotly_chart(visualisation_outliers(
+            df, x='year', y='selling_price'))
         st.write('* **Selling Price by KMs driven**')
-        st.plotly_chart(visualisation_outliers(df, x='km_driven', y='selling_price'))
-
+        st.plotly_chart(visualisation_outliers(
+            df, x='km_driven', y='selling_price'))
 
     st.write('**Dataframe used for below visualisation**')
     df = calculate_price_difference(df)
