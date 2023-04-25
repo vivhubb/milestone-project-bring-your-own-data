@@ -8,7 +8,7 @@ from app_pages.page_regression_model import regression_model
 app = MultiPage(app_name='Motorcycle Price Predictor')
 
 app.add_page('Quick Project Summary', project_summary)
-app.add_page('Visualisation', statistics_visualisation)
+app.add_page('Motorcycles Price Study', statistics_visualisation)
 app.add_page('Predict Selling Price', ml_prediction)
 app.add_page('ML Regression Model', regression_model)
 

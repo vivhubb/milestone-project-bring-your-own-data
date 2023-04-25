@@ -6,7 +6,9 @@ from src.regression_model import calculate_errors
 
 
 def regression_model():
-    st.write('## Model Evaluation')
+    st.info('* We have agreed with the client on an R2 score of at least 0.75')
+
+    st.write('#### Model Evaluation')
 
     model = load_model('data/output/model.pkl')
     x = load_data('data/input/x_train.csv')
