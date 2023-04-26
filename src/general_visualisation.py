@@ -5,6 +5,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
+from scipy.spatial.distance import pdist, squareform
+from scipy.cluster.hierarchy import linkage, dendrogram
 
 
 def load_data(path):
@@ -97,6 +99,56 @@ def visualisation_kmpd(df):
 
 
 def build_correlation_matrix():
+    df = load_data('data/data.csv')
+    owner_count = np.array(list(map(lambda x: re.search('[0-9]*', x).group(0), df['owner'].values)))
+    df['owner'] = owner_count
+    df.drop(columns=['name', 'seller_type'], inplace=True)
+    lst = []
+    # Remove first zeros and missing values
+    for col in df.columns[df.dtypes!='object'].to_list():
+        if col != 'selling_price':
+            df1 = df[df[col]!=0]
+            df2 = df1[df1[col].notnull()]
+            df3 = df2.filter(['selling_price', col])
+            corr_spearman = df3.corr(method='spearman')['selling_price'][1:].round(2)
+            lst.append(corr_spearman[col])
+    corr_num = pd.Series(index=df.columns[df.dtypes!='object'].drop(['selling_price']).to_list(), data=lst).sort_values(key=abs, ascending=False)
+
+    lst = []
+    for col in df.columns[df.dtypes=='object'].to_list():
+        df1 = df[df[col]!='None']
+        df2 = df1[df1[col].notnull()]
+        df4 = df2.filter(['selling_price', col])
+        corr_spearman = df4.corr(method='spearman')['selling_price'][1:].round(2)
+        lst.append(corr_spearman[col])
+    corr_object = pd.Series(index=df.columns[df.dtypes=='object'].to_list(), data=lst).sort_values(key=abs, ascending=False)
+
+    corr = pd.concat([corr_num, corr_object]).sort_values(key=abs, ascending=False).round(2)
+    corr_df = pd.DataFrame(index=['selling_price'], columns=corr.index, data=corr.values.reshape(1,-1).tolist())
+    corr_df_rev = corr_df[corr_df.columns[::-1]]
+
+    return corr_df_rev
+
+
+def corr_matrix_heatmap(corr_df_rev):
+    fig, axes = plt.subplots(figsize=(15,6))
+    annot_size = 8
+
+    # Retain only correlation values above 0.4
+    mask = np.zeros_like(corr_df_rev, dtype=np.bool_)
+    mask[corr_df_rev.abs() < 0.4] = True
+
+    sns.heatmap(data=corr_df_rev, annot=True, xticklabels=True, yticklabels=True,
+                mask=mask, annot_kws={"size": annot_size}, ax=axes,
+                linewidth=0.5)
+
+    print(corr_df_rev)
+
+    return fig
+
+
+'''
+def build_correlation_matrix():
     data = load_data('data/data.csv')
     owner_count = np.array(list(map(lambda x: re.search('[0-9]*', x).group(0), data['owner'].values)))
     data['owner'] = owner_count
@@ -109,6 +161,7 @@ def corr_matrix_heatmap():
     sns.heatmap(build_correlation_matrix(), annot=True, cmap='viridis')
 
     return fig
+'''
 
 
 def accuracy_visualisation(y, y_pred, title):

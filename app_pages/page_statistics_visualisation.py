@@ -26,7 +26,8 @@ def statistics_visualisation():
         '''
         )
     if st.checkbox('**Correlation Matrix**'):
-        st.write(corr_matrix_heatmap())
+        corr_df_rev = build_correlation_matrix()
+        st.write(corr_matrix_heatmap(corr_df_rev))
 
         st.warning(
             '''
