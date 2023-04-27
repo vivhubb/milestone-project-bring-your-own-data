@@ -38,12 +38,15 @@ def statistics_visualisation():
             '''
         )
         st.info(
-            f"**Variables explained :**  \n"
-            f"* **selling_price:** relects the current selling price of the bike  \n"
-            f"* **year:** shows the year of manufacturing  \n"
-            f"* **owner:** counts how many owners the bike had previously  \n"
-            f"* **km_driven:** shows the mileage for the motorcycle  \n"
+            f"**Variables explained** (sorted by level of importance)**:**  \n"
+            f"The 4 most important variables are:  \n"
             f"* **ex_showroom_price:** shows the initial price of the motorbike  \n"
+            f"* **year:** shows the year of manufacturing  \n"
+            f"* **km_driven:** shows the mileage for the motorcycle  \n"
+            f"* **owner:** counts how many owners the bike had previously  \n\n"
+            f"The other variables:  \n"
+            f"* **name**: holds information about the brand and model of the bikes  \n"
+            f"* **seller_type**: categorical variable showing if the seller is an individual or a dealer  \n"
         )
 
     st.write('**Dataframe used for below visualisations**')
