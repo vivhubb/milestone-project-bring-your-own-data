@@ -37,7 +37,7 @@ def train_model():
         model.fit(x_train, y_train)
         save_model(model, 'data/output/model.pkl')
 
-        model.fit(x_train.drop(columns=['owner', 'ex_showroom_price']), y_train)
+        model.fit(x_train.drop(columns=['owner']), y_train)
         save_model(model, 'data/output/best_model.pkl')
     
 def test_model(model):
