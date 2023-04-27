@@ -97,7 +97,8 @@ def visualisation_kmpd(df):
 
     return fig
 
-
+# build_correlatin_matrix & corr_matrix_heatmap code built based on
+# https://github.com/faridjos/milestone-project-heritage-housing-issues/blob/main/jupyter_notebooks/HouseSalePrices.ipynb
 def build_correlation_matrix():
     df = load_data('data/data.csv')
     owner_count = np.array(list(map(lambda x: re.search('[0-9]*', x).group(0), df['owner'].values)))
@@ -142,26 +143,7 @@ def corr_matrix_heatmap(corr_df_rev):
                 mask=mask, annot_kws={"size": annot_size}, ax=axes,
                 linewidth=0.5)
 
-    print(corr_df_rev)
-
     return fig
-
-
-'''
-def build_correlation_matrix():
-    data = load_data('data/data.csv')
-    owner_count = np.array(list(map(lambda x: re.search('[0-9]*', x).group(0), data['owner'].values)))
-    data['owner'] = owner_count
-    
-    return data.drop(columns=['name', 'seller_type']).corr()
-
-
-def corr_matrix_heatmap():
-    fig, ax = plt.subplots()
-    sns.heatmap(build_correlation_matrix(), annot=True, cmap='viridis')
-
-    return fig
-'''
 
 
 def accuracy_visualisation(y, y_pred, title):
