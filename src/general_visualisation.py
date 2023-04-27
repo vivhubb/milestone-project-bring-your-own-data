@@ -11,7 +11,7 @@ from scipy.cluster.hierarchy import linkage, dendrogram
 
 def load_data(path):
     data = pd.read_csv(path)
-    data['ex_showroom_price'].fillna(value=data['selling_price'], inplace=True)
+    data['ex_showroom_price'].fillna(value=data['ex_showroom_price'].mean(), inplace=True)
 
     return data
 
@@ -93,7 +93,7 @@ def visualisation_kmpd(df):
     fig = px.line(df.groupby('km_driven').mean()[['price_difference']],
                     y='price_difference', 
                     range_x=[0, 120000], 
-                    range_y=[-50000, 220000],)
+                    range_y=[-100000, 220000],)
 
     return fig
 

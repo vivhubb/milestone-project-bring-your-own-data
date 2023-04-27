@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 
 def load_dataset(path):
     data = pd.read_csv(path)
-    data['ex_showroom_price'].fillna(value=data['selling_price'], inplace=True)
+    data['ex_showroom_price'].fillna(value=data['ex_showroom_price'].mean(), inplace=True)
 
     return data
 
