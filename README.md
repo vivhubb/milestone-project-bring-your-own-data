@@ -9,6 +9,7 @@
 - [ML Business Case](#ml-business-case)
 - [Dashboard Design](#dashboard-design)
 - [Unfixed Bugs](#unfixed-bugs)
+- [Future Developments](#future-developments)
 - [Deployment](#deployment)
     - [Heroku](#heroku)
 - [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
@@ -139,6 +140,11 @@
 
 ## Unfixed Bugs
 * No unfixed bugs that we are aware of.
+
+[Back to TOP](#table-of-contents)
+
+## Future Developments
+* Planning of developing a feature that saves the files uploaded for price prediction to increase dataset and prediction accuracy.
 
 [Back to TOP](#table-of-contents)
 
