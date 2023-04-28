@@ -4,7 +4,7 @@
 - [Table of Contents](#table-of-contents)
 - [Dataset Content](#dataset-content)
 - [Business Requirements](#business-requirements)
-- [Hypothesis and how to validate?](#hypothesis-and-how-to-validate)
+- [Hypothesis and validation](#hypothesis-and-validation)
 - [The rationale to map the business requirements to the Data Visualizations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
 - [Dashboard Design](#dashboard-design)
@@ -49,8 +49,12 @@
 [Back to TOP](#table-of-contents)
 
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+## Hypothesis and validation
+* We initially suspected that the 2 most important features would be the year and the Kms driven.
+
+* The correlation study showed that another important feature is the ex showroom price. Based on these result we decided to create the price predictor based on these 3 most important features.
+
+* To validate our hypothesis we performed: Data exploration and cleaning, Model selection and training, Model evaluation, Interpretation and visualization
 
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
