@@ -73,7 +73,34 @@
 
 
 ## ML Business Case
-* In the previous bullet, you potentially visualized an ML task to answer a business requirement. You should frame the business case using the method we covered in the course 
+1. What are the business requirements?
+    - The client is interested to see how the motorcycle attributes correlate with the sale prices.
+    - The client is interested to predict used motorcycle prices.
+1. Is there any business objective that can be answered with conventional data analysis?
+    - Using conventional data analysis we can investigate how used motorcycle attributes correlate with the selling price.
+1. Does the client need a dashboard or an API endpoint?
+    - The client will be provided with a dashboard.
+1. What does the client consider as a successful project outcome?
+    - A study showing the most relevant variables correlated to selling price.
+    - Also, the capability to predict the sale price for one or more used motorcycles.
+1. Can you break down the project into Epics and User Stories?
+    - Information gathering and data collection.
+    - Data visualization, cleaning, and preparation.
+    - Model training, optimization and validation.
+    - Dashboard planning, designing, and development.
+    - Dashboard deployment and release.
+1. Ethical or Privacy concerns?
+    - No. The client found a public dataset.
+1. Does the data suggest a particular model?
+    - The data suggests a regressor where the target is the sale price.
+1. What are the model's inputs and intended outputs?
+    - The inputs are used motorcycle attributes and the output is the predicted selling price.
+1. What are the criteria for the performance goal of the predictions?
+    - We agreed with the client an R2 score of at least 0.75 on the train set as well as on the test set.
+1. How will the client benefit?
+    - The price predictor is beneficial for individuals who are looking to buy or sell a used motorcycle, as well as for dealerships who want to determine the fair market value of the motorcycles they have on their inventory.
+
+[Back to TOP](#table-of-contents)
 
 
 ## Dashboard Design
