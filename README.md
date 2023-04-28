@@ -1,25 +1,21 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<!-- TOC -->
 
-## Gitpod Template Instructions
+- [Dataset Content](#dataset-content)
+- [Business Requirements](#business-requirements)
+- [Hypothesis and how to validate?](#hypothesis-and-how-to-validate)
+- [The rationale to map the business requirements to the Data Visualizations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+- [ML Business Case](#ml-business-case)
+- [Dashboard Design](#dashboard-design)
+- [Unfixed Bugs](#unfixed-bugs)
+- [Deployment](#deployment)
+    - [Heroku](#heroku)
+- [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+- [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+- [Acknowledgements optional](#acknowledgements-optional)
 
-Welcome,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Gitpod Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the Gitpod Template Instructions at least once, though! It contains some important information about Gitpod and the extensions we use. 
-
-## Gitpod Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
+<!-- /TOC -->
 
 ## Dataset Content
 * Describe your dataset
