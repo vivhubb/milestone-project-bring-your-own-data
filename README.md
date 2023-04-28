@@ -1,5 +1,7 @@
+## Table of Contents
 <!-- TOC -->
 
+- [Table of Contents](#table-of-contents)
 - [Dataset Content](#dataset-content)
 - [Business Requirements](#business-requirements)
 - [Hypothesis and how to validate?](#hypothesis-and-how-to-validate)
@@ -18,8 +20,23 @@
 <!-- /TOC -->
 
 ## Dataset Content
-* Describe your dataset
+* This dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/nehalbirla/motorcycle-dataset) and contains information about 1061 used motorcycles.
 
+* We created then a fictitious user story where predictive analytics can be applied in a real project in the workplace.
+
+* The dataset has 7 features that could potentially affect their prices. The features are the following: name, selling price, year, seller type, owner, km driven, ex showroom price.
+
+|Variable|Meaning|Units|
+|:----|:----|:----|
+|name|Motorcycle brand and model name|Text|
+|selling_price|Price at which the motorcycle is being sold|5.000-760.000|
+|year|Year in which the motorcycle was manufactured|Year from 1988 to 2020|
+|seller_type|Type of seller who sold the motorcycle|Dealer or Individual
+|owner|Count of owners of the motorcycle|1st, 2nd, 3rd, 4th owner
+|km_driven|Number of kilometers driven with the motorcycle|350-880.000
+|ex_showroom_price|Price of the motorcycle when it was new|30.490-1.278.000
+
+[Back to TOP](#table-of-contents)
 
 ## Business Requirements
 * Describe your business requirements
