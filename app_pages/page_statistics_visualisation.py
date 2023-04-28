@@ -6,6 +6,8 @@ from src.general_visualisation import *
 def statistics_visualisation():
     df = build_df()
 
+    st.write('## Motorcycles Price Study')
+
     # general overview
     st.warning(
         '''
