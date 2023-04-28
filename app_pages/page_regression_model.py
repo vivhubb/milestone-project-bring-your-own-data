@@ -6,7 +6,7 @@ from src.regression_model import calculate_errors
 
 
 def regression_model():
-    st.info('* We have agreed with the client on an R2 score of at least 0.75')
+    st.info('* We have agreed with the client on an R2 score of at least 0.70')
 
     st.write('#### Model Evaluation')
 

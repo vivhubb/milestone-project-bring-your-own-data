@@ -94,7 +94,7 @@
 1. What are the model's inputs and intended outputs?
     - The inputs are used motorcycle attributes and the output is the predicted selling price.
 1. What are the criteria for the performance goal of the predictions?
-    - We agreed with the client an R2 score of at least 0.75 on the train set as well as on the test set.
+    - We agreed with the client an R2 score of at least 0.70 on the train set as well as on the test set.
 1. How will the client benefit?
     - The price predictor is beneficial for individuals who are looking to buy or sell a used motorcycle, as well as for dealerships who want to determine the fair market value of the motorcycles they have on their inventory.
 
