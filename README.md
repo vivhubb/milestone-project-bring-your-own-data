@@ -104,9 +104,37 @@
 
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
+1. Quick Project Summary
+    - General information
+    - Information about Project Dataset
+    - Business requirements
 
+1. Motorcycles Price Study (visualisations)
+    * Data visualizations, such as scatterplots, heatmaps, or correlation matrices, to show the relationships between the different features and the selling price.
+    * Interactive visualizations, using tools such as Plotly, to allow users to explore the data and the relationships between the different features.
+    * This pages inlcudes:
+        * Correlation matrix
+        * Dataframes used for visualisations
+        * Checkbox: 
+            - Selling price and KM driven per year
+            - Selling price by owner count
+            - Selling Price by Owner Count and Year
+            - Identifying outliers
+            - How KMs driven affect price drop
+
+1. Project Hypothesis and Validation
+    * Our hypothesis is that the selling price of a used motorcycle is determined by a combination of several factors such as the year, seller type, number of previous owners, kilometers driven, and the ex-showroom price. We believe that by analyzing these features and building a machine learning model, we can accurately predict the selling price of a used motorcycle
+    
+1. Predict Selling Price
+    * This page fulfills the 2nd business requirement
+    * Provides a user interface to allow users to input the features of a used motorcycle and get a predicted selling price.
+    
+1. ML Regression Model
+    * A description of the machine learning regression model used to predict the selling price of a used motorcycle.
+    * Key findings from the training and evaluation of the model, such as the performance metrics.
+    * Visualizations to show the relationships between the different features and the selling price, and to interpret the results of the model.
+
+[Back to TOP](#table-of-contents)
 
 
 ## Unfixed Bugs
