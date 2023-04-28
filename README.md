@@ -39,7 +39,14 @@
 [Back to TOP](#table-of-contents)
 
 ## Business Requirements
-* Describe your business requirements
+* The goal of this project is to develop a model that can predict the selling price of used motorcycles based on several features such as the year, seller type, number of previous owners, kilometers driven, and the ex-showroom price.
+
+* This model can be useful for individuals who are looking to buy or sell a used motorcycle, as well as for dealerships who want to determine the fair market value of the motorcycles they have on their inventory. By accurately predicting the selling price of a used motorcycle, potential buyers and sellers can make more informed decisions and negotiate prices more effectively.
+
+1. The client is interested to see how the motorcycle attributes correlate with the sale prices.
+1. The client is interested to predict used motorcycle prices.
+
+[Back to TOP](#table-of-contents)
 
 
 ## Hypothesis and how to validate?
