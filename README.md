@@ -56,9 +56,20 @@
 
 * To validate our hypothesis we performed: Data exploration and cleaning, Model selection and training, Model evaluation, Interpretation and visualization
 
+[Back to TOP](#table-of-contents)
+
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
+* Business Requirement 1: Data Visualization and Correlation study
+    - The business requires data visualizations and a correlation study to better understand the relationships between the different features in the dataset and the selling price of a used motorcycle.
+    - The use of scatterplots, heatmaps, or correlation matrices to visualize the relationships between the different features and the selling price.
+    - Identifying any outliers or anomalies that may affect the accuracy of the model.
+* Business requirement 2:
+    - We are interested in predicting the selling price of a used motorcycle based on its features.
+    - We want to build a regression model for price prediction
+    - We want to build a feature that allows for multiple predictions
+
+[Back to TOP](#table-of-contents)
 
 
 ## ML Business Case
