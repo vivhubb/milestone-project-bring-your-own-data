@@ -168,7 +168,23 @@
 
 
 ## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+* Libraries used in this project:
+    - joblib==1.2.0
+    - matplotlib==3.7.1
+    - numpy==1.24.2
+    - pandas==2.0.0
+    - plotly==5.13.1
+    - scikit-learn==1.2.2
+    - seaborn==0.12.2
+    - streamlit==1.19.0
+* Examples of how these libraries were used:
+    - joblib: Used for saving and loading machine learning models
+    - matplotlib: Used for creating static data visualizations, such as line plots, scatterplots etc.
+    - numpy: Used for performing numerical operations on arrays and matrices
+    - pandas: Used for loading, manipulating, and analyzing structured data, such as CSV files
+    - plotly: Used for creating interactive data visualizations, such as line plots, scatterplots, and heatmaps
+    - scikit-learn: Used for implementing machine learning algorithms
+    - seaborn: Used for creating statistical data visualizations
 
 
 ## Credits 
