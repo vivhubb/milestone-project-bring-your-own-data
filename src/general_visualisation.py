@@ -5,8 +5,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
-from scipy.spatial.distance import pdist, squareform
-from scipy.cluster.hierarchy import linkage, dendrogram
 
 
 def load_data(path):

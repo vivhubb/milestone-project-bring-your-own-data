@@ -40,9 +40,9 @@ def statistics_visualisation():
         st.info(
             f"**Variables explained** (sorted by level of importance)**:**  \n"
             f"The 4 most important variables are:  \n"
-            f"* **ex_showroom_price:** shows the initial price of the motorbike  \n"
             f"* **year:** shows the year of manufacturing  \n"
             f"* **km_driven:** shows the mileage for the motorcycle  \n"
+            f"* **ex_showroom_price:** shows the initial price of the motorbike  \n"
             f"* **owner:** counts how many owners the bike had previously  \n\n"
             f"The other variables:  \n"
             f"* **name**: holds information about the brand and model of the bikes  \n"
