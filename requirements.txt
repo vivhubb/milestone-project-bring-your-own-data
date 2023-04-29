@@ -31,8 +31,8 @@ pyparsing==3.0.9
 python-dateutil==2.8.2
 scikit-learn==1.2.2
 seaborn==0.12.2
-statsmodels
-streamlit
+statsmodels==0.13.5
+streamlit==1.19.0
 toml==0.10.2
 tomli==2.0.1
 toolz==0.12.0
